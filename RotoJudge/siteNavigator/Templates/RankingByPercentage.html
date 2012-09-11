@@ -1,0 +1,24 @@
+                <table class ="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Team Name</th>
+                      <th>Total Player Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for owner in seasonPercentagesLeague %}
+                    <tr>
+                      <td>
+                        {{owner.team_name}}
+                      </td>
+                      <td>
+                        {{owner.season_avg}}
+                      </td>
+                    </tr>
+                      {% empty %}
+                      <tr>
+                        <td> No More Matches </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>

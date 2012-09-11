@@ -1,0 +1,72 @@
+ <div class="row">
+       
+  <div class="span4">
+            <h3> Starting Line up</h3>
+                <table class ="table table-bordered table-condensed">
+                  <thead>
+                  <tr>
+                <th>  </th>
+                <th> Optimal</th>
+                <th></th>
+                </tr>
+                    <tr>
+                  <th>Position</th>
+                      <th>Name</th>
+                      <th> Points</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                <tr>
+                      {% for playerA in optimalStartList %}
+                                {% ifequal playerA.week_num week.week_num%}
+                 <td>{{playerA.player_position}}</td>
+                      <td>{{playerA.player_name}}</td>
+                      <td> {{playerA.pts_scored}}</td>
+                                </tr>
+                      {% endifequal%}
+                      {% empty %}
+                      <td> No Players to display, please contact us to report this issue! </td>
+      {% endfor %}
+                  </tbody>
+                </table>
+ </div>
+  <div class="span4">
+           <table class ="table table-bordered table-condensed">
+                  <thead>
+                  <tr>
+                <th>  </th>
+                <th> Actual</th>12
+                <th></th>
+                </tr>
+                    <tr>
+                  <th>Position</th>
+                      <th>Name</th>
+                      <th> Points</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                <tr>
+                      {% for playerB in startResults%}
+                                {% ifequal playerB.week_num week.week_num%}
+                 <td>{{playerB.player_position}}</td>
+                      <td>{{playerB.player_name}}</td>
+                      <td> {{playerB.pts_scored}}</td> 
+                                </tr>
+                      {% endifequal%}
+                      {% empty %}
+                      <td> No Players to display, please contact us to report this issue! </td>
+                {% endfor %}
+                  </tbody>
+                </table>     
+  </div>           
+ </div>
+ 
+ 
+   <div class="span8">
+                    <h3>
+                    Optimal Starts
+                    </h3>
+                  <p> This table shows the optimal team for you to start. For more info about how we calculate this stat, click the button below:</p>
+                  <p><a class="btn btn-info" href="/football/stats/DreamTeam">More Info &raquo;</a></p>
+   </div>
+               

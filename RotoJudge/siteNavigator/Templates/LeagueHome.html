@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'LeaguePageBaseB.html' %}
+
+
+
+{% block content %}
+        <div class= "row">
+              <div class= "span10">
+                <h2>League Home Page</h2>
+                <p>This is a sample team home page. Click the team name on the left to view detailed stats for each team in your league.  </p>
+              </div>
+              </div>
+              
+             
+             <div class="span10">
+              <div class="row">
+                       <h3>Recent Match Results </h3>
+                       <p> This table shows the <FONT COLOR ="24d624"> winners </FONT> and loosers of last week's matches. Enjoy!</p>
+                </div>
+                {% include 'MatchResultsTable.html' %}
+             </div>
+             
+              <div class="row">
+                <div class=span3>
+                  <h3>Ranking By Total Player Value </h3>
+            {% include 'RankingByPlayerValue.html' %}
+                </div>
+                   <div class=span3>
+                  <h3>Ranking By Start Percetage </h3>
+            {% include 'RankingByPercentage.html' %}
+                </div>
+              </div>
+    
+    
+
+{% endblock %}

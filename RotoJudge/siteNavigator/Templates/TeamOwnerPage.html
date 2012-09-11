@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends 'LeaguePageBaseB.html' %}
+
+
+{% block content %}
+      <div class=row>
+          <div class= "span6">
+                
+                 
+               <div class="well">
+                 <h1>{{ownerInfo.team_name}}</h1>
+                  <p> <span class="label">  Record: </span>W-L-T</p>
+                  <p> <span class="label">  Rank in League </span>1-12 (from nfl site)</p>
+                  <p> <span class="label">  Total Team Pick Value: </span>
+                  {% for pickValue in pickValueSeason %} {{pickValue.total_team_pick_value}}{% endfor %} </p>
+                  <p> <span class="label">  Average % smart starts: </span>
+                  {%for percent in startPercentSeason %} {{percent.season_avg}} {% endfor %} %</p>
+               </div>
+          </div>
+           <div class="span4">
+              <div class="well">
+                     <p></p>
+                   <p></p>
+                 <h3> OWNER: </h3> 
+                 <h2>   </h2>
+                 <h2>  </h2>
+                <h1>{{ownerInfo.owner_name}}</h1>
+                <p><span class="label">  Member since:</span> 9/1/12.</p>
+              </div>
+            </div>     
+       </div>
+       
+      <div class="tabbable"> <!-- Only required for left/right tabs -->
+         <ul class="nav nav-tabs">
+                   {% for week in goodStartList %}
+                   <li {% ifequal week.week_num 1%} class="active"{%endifequal%}><a href="#{{week.week_num}}" data-toggle="tab">Week {{week.week_num}}</a></li> 
+                    {% endfor %}
+         </ul>
+        <div class="tab-content">
+          {% for week in goodStartList %}
+         <div{% ifequal week.week_num 1%} class="tab-pane active" {%else %} class="tab-pane" {%endifequal%}id="{{week.week_num}}">
+              <h3>Smart Start Percentage: {{week.percent_optimal}}</h3>
+              {% include 'OptimalStartTable.html' %}
+          </div>
+         {% endfor %}
+        </div>
+      </div>
+
+                  
+                        
+
+    
+
+{% endblock %}

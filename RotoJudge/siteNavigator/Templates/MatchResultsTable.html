@@ -1,0 +1,52 @@
+ <table class ="table table-condensed table-bordered">
+                  <thead>
+                    <tr>
+                        <th>   </th>
+                      {% for game in matchList %}
+                      <th>Match</th>
+                      <th>A</th>
+                      <th>O</th>
+                        {% endfor %}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>
+                            Home Team
+                        </td>
+                        {% for match in matchList %}
+                      <td>
+                        {% ifequal match.home_team match.match_winner %}
+                           <FONT COLOR ="24d624"> {{match.home_team}} </FONT>
+                        {% else %} {{match.home_team}} 
+                        {% endifequal %}
+                      </td>
+                      <td>
+                        {{match.home_team_score}}
+                      </td>
+                      <td>
+                        {{match.home_team_optimal}}
+                      </td>
+                 {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>
+                            Away Team
+                        </td>
+                      {% for match in matchList %}
+                      <td>
+                        {% ifequal match.away_team match.match_winner %}
+                           <FONT COLOR ="24d624"> {{match.away_team}} </FONT>
+                        {% else %} {{match.home_team}} 
+                        {% endifequal %}
+                      </td>
+                      <td>
+                        {{match.away_team_score}}
+                      </td>
+                      <td>
+                        {{match.away_score_optimal}}
+                      </td>
+                 {% endfor %}   
+                    </tr>
+                  </tbody>
+                </table>
